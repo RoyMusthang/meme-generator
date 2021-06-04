@@ -1,0 +1,49 @@
+body {
+  font-family: sans-serif;
+}
+
+#meme-image-container {
+  margin-top: 30px;
+  position: relative;
+  width: fit-content;
+  max-width: 400px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#meme-image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#meme-text {
+  text-shadow: 5px 5px 5px black;
+  font-size: 30px;
+  color: white;
+}
+
+#fire {
+  background-color: red;
+}
+
+#water {
+  background-color: blue;
+}
+
+#earth {
+  background-color: green;
+}
+
+#suggestions {
+  width: fit-content;
+}
+
+#suggestions div {
+  display: inline-block;
+  height: 150px;
+}
+
+#suggestions div img {
+  height: 100%;
+}
