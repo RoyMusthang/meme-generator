@@ -1,49 +1,35 @@
-const textInputElement = document.getElementById('text-input');
-const memeTextElement = document.getElementById('meme-text');
-const memeInsertElement = document.getElementById('meme-insert');
-const imageElement = document.getElementById('meme-image');
-const memeImgContainerElement = document.getElementById('meme-image-container');
-const fireButton = document.getElementById('fire');
-const waterButton = document.getElementById('water');
-const earthButton = document.getElementById('earth');
-const suggestionsContainer = document.getElementById('suggestions');
+const textInput = document.querySelector('#text-input');
+const imageInput = document.querySelector('#meme-insert');
+const memeContainer = document.querySelector('#meme-image-container');
+const memeText = document.querySelector('#meme-text');
+const memeImage = document.querySelector('#meme-image');
+const fireButton = document.querySelector('#fire');
+const waterButton = document.querySelector('#water');
+const earthButton = document.querySelector('#earth');
+const images = document.getElementsByClassName('images');
 
-function updateText() {
-  memeTextElement.textContent = textInputElement.value;
+textInput.addEventListener('input', () => {
+  memeText.innerHTML = textInput.value;
+});
+
+imageInput.addEventListener('input', () => {
+  memeImage.src = URL.createObjectURL(imageInput.files);
+});
+
+fireButton.addEventListener('click', () => {
+  memeContainer.className = 'fire';
+});
+
+waterButton.addEventListener('click', () => {
+  memeContainer.className = 'water';
+});
+
+earthButton.addEventListener('click', () => {
+  memeContainer.className = 'earth';
+});
+
+for (let i = 0; i < images.length; i += 1) {
+  images[i].addEventListener('click', () => {
+    memeImage.src = images[i].src;
+  })
 }
-
-function loadImage(event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.addEventListener('load', (loadEvent) => {
-    imageElement.src = loadEvent.target.result;
-  });
-  reader.readAsDataURL(file);
-  memeTextElement.style.position = 'absolute';
-  memeTextElement.style.bottom = '5%';
-}
-
-function applyFireBorder() {
-  memeImgContainerElement.style.border = '3px dashed red';
-}
-
-function applyWaterBorder() {
-  memeImgContainerElement.style.border = '5px double blue';
-}
-
-function applyEarthBorder() {
-  memeImgContainerElement.style.border = '6px groove green';
-}
-
-function useSuggestion(event) {
-  imageElement.src = event.target.src;
-  memeTextElement.style.position = 'absolute';
-  memeTextElement.style.bottom = '5%';
-}
-
-textInputElement.addEventListener('keyup', updateText);
-memeInsertElement.addEventListener('change', loadImage);
-fireButton.addEventListener('click', applyFireBorder);
-waterButton.addEventListener('click', applyWaterBorder);
-earthButton.addEventListener('click', applyEarthBorder);
-suggestionsContainer.addEventListener('click', useSuggestion);

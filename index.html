@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meme Generator</title>
   <link rel="stylesheet" href="style.css">
+  <title>Meme Generator</title>
 </head>
 <body>
-  <input type="text" id="text-input" maxlength="60">
-  <input type="file" name="meme-insert" id="meme-insert">
-  <div id="meme-image-container">
-    <img id="meme-image" src="">
+  <div id="text-input-container">
+    <label for="text-input">Text:</label>
+    <input id="text-input" type="text" maxlength="60" placeholder="digite o texto">
+  </div>
+  <div id="image-input-container">
+    <label for="meme-insert">Image:</label>
+    <input type="file" name="meme-img" id="meme-insert">
+  </div>
+  <div id="meme-image-container" class="default">
     <p id="meme-text"></p>
+    <img src="" id="meme-image">
   </div>
-  <div>
-    <button id="fire">Fire 🔥️</button>
-    <button id="water">Water 🌊️</button>
-    <button id="earth">Earth 🌳️</button>
+  <div id="style-presets">
+    <p>Estilos de borda</p>
+    <button id="fire" class="button">Fire</button>
+    <button id="water" class="button">Water</button>
+    <button id="earth" class="button">Earth</button>
   </div>
-  <h4>Algumas sugestões:</h4>
-  <div id="suggestions">
-    <div id="meme-1">
-      <img src="imgs/meme1.png" alt="">
-    </div>
-    <div id="meme-2">
-      <img src="imgs/meme2.png" alt="">
-    </div>
-    <div id="meme-3">
-      <img src="imgs/meme3.png" alt="">
-    </div>
-    <div id="meme-4">
-      <img src="imgs/meme4.png" alt="">
-    </div>
+  <div id="image-presets">
+    <p>Pre-selected images</p>
+    <img src="imgs/meme1.png" alt="" id="meme-1" class="images">
+    <img src="imgs/meme2.png" alt="" id="meme-2" class="images">
+    <img src="imgs/meme3.png" alt="" id="meme-3" class="images">
+    <img src="imgs/meme4.png" alt="" id="meme-4" class="images">
   </div>
   <script src="script.js"></script>
 </body>
